@@ -229,11 +229,11 @@ function openShader()
 {
    if (document.getElementById('PhongShading').checked) 
    {
-      window.location = 'PhongShading.html';
+      window.location = 'phongShading.html';
    }
    if (document.getElementById('GouraudShading').checked) 
    {
-      window.location = 'GouraudShading.html';
+      window.location = 'gouraudShading.html';
    }
 }
 
