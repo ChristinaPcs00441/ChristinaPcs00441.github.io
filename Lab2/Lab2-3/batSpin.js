@@ -162,7 +162,7 @@ window.onload = function init() {
    gl.uniform4fv(material.specular, white);
    gl.uniform4fv(material.ambient, diffuseColor);
    gl.uniform1f(material.shininess, 50.0);
-   gl.uniform1f(bulge, 10.0);
+   gl.uniform1f(bulge, 0.5);
 
    // Get and set other shader state
    lighting = gl.getUniformLocation(program, "lighting");
@@ -203,12 +203,12 @@ window.onload = function init() {
 
    var ele = document.getElementById("bulge");
    ele.oninput = ele.onchange = function (event) {
-      var bulge = (event.srcElement || event.target).value;
-      document.getElementById("bulgeValue").innerHTML = bulge;
-      gl.uniform1f(bulge, bulge);
+      var bulgeVal = (event.srcElement || event.target).value;
+      document.getElementById("bulgeValue").innerHTML = bulgeVal;
+      gl.uniform1f(bulge, bulgeVal);
    };
-   ele.value = bulge;
-   document.getElementById("bulgeValue").innerHTML = bulge;
+   ele.value = bulgeVal;
+   document.getElementById("bulgeValue").innerHTML = bulgeVal;
 
    // Diffuse colour picker - set initial value
    document.getElementById("diffuseColor").jscolor.fromRGB(
