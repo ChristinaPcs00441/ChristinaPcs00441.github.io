@@ -42,6 +42,7 @@ var program;
 
 //sphere subdivisions
 var rez = 10;
+var bulgeVal = 0.5;
 
 function bindBuffersToShader(obj) {
    gl.bindBuffer(gl.ARRAY_BUFFER, obj.vertexObject);
@@ -203,7 +204,7 @@ window.onload = function init() {
 
    var ele = document.getElementById("bulge");
    ele.oninput = ele.onchange = function (event) {
-      var bulgeVal = (event.srcElement || event.target).value;
+      bulgeVal = (event.srcElement || event.target).value;
       document.getElementById("bulgeValue").innerHTML = bulgeVal;
       gl.uniform1f(bulge, bulgeVal);
    };
