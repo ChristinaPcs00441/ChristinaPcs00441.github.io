@@ -189,8 +189,8 @@ window.onload = function init() {
       document.getElementById("shininessval").innerHTML = shininess;
       gl.uniform1f(material.shininess, shininess);
    };
-   ele.value = shininess;
-   document.getElementById("shininessval").innerHTML = shininess;
+   ele.value = 50;
+   document.getElementById("shininessval").innerHTML = 50;
 
    // Sphere resolution slider
 	ele = document.getElementById("rez");
@@ -205,7 +205,7 @@ window.onload = function init() {
    ele.oninput = ele.onchange = function (event) {
       var bulgeVal = (event.srcElement || event.target).value;
       document.getElementById("bulgeValue").innerHTML = bulgeVal;
-      gl.uniform1f(bulge, bulgeVal);
+      //gl.uniform1f(bulge, bulgeVal);
    };
    ele.value = bulgeVal;
    document.getElementById("bulgeValue").innerHTML = bulgeVal;
