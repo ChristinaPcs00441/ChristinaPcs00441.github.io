@@ -205,7 +205,7 @@ window.onload = function init() {
    ele.oninput = ele.onchange = function (event) {
       var bulgeVal = (event.srcElement || event.target).value;
       document.getElementById("bulgeValue").innerHTML = bulgeVal;
-      //gl.uniform1f(bulge, bulgeVal);
+      gl.uniform1f(bulge, bulgeVal);
    };
    ele.value = bulgeVal;
    document.getElementById("bulgeValue").innerHTML = bulgeVal;
