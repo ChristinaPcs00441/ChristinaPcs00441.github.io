@@ -35,7 +35,7 @@ vec3 N; // fixed surface normal
 void main() 
 {
   //Transform the point
-  //mvPosition = mv*vPosition;  //mvPosition is interpolated for pixel lighting
+  mvPosition = mv*vPosition;  //mvPosition is interpolated for pixel lighting
   gl_Position = p*mvPosition; 
 
   //normal is also interpolated for pixel lighting
@@ -45,21 +45,21 @@ void main()
     
 }
 
-/*vec4 twist(in float posZPrevious,in float posZCurrent,in float posZCurrentNext)
-{
-   float pi = 3.1415926;
-   float theta = pi/4; //45 moires
-   float rZ = 0.0;
+//vec4 twist(in float posZPrevious,in float posZCurrent,in float posZCurrentNext)
+//{
+//   float pi = 3.1415926;
+//   float theta = pi/4; //45 moires
+//   float rZ = 0.0;
 
-   float cosrZ = cos(rZ);
-   float sinrZ = sin(rZ);
-   float x = cosrZ - sinrZ;
-   float y = sinrZ + cosrZ;
+//   float cosrZ = cos(rZ);
+//   float sinrZ = sin(rZ);
+//   float x = cosrZ - sinrZ;
+//   float y = sinrZ + cosrZ;
 
-   vec4 transformation = new vec4(x,y,1.0,1.0);
-   return transformation;
+//   vec4 transformation = new vec4(x,y,1.0,1.0);
+//   return transformation;
 
-}*/
+//}
 
     </script>
 
