@@ -38,8 +38,8 @@ void main()
   //normal is also interpolated for pixel lighting
   normal = (mv*vec4(vNormal,0.0)).xyz;
 
-  float t = 0.01;
-  gl_Position = gl_Position*(vPosition +  vec4(normal * t,0.0));
+  float t = 0.5;
+  gl_Position = (p*mv)*(vPosition + vec4(normal * t,0.0));
     
 }
     </script>
