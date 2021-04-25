@@ -189,8 +189,8 @@ window.onload = function init() {
       document.getElementById("shininessval").innerHTML = shininess;
       gl.uniform1f(material.shininess, shininess);
    };
-   ele.value = 50;
-   document.getElementById("shininessval").innerHTML = 50;
+   ele.value = shininess;
+   document.getElementById("shininessval").innerHTML = shininess;
 
    // Sphere resolution slider
 	ele = document.getElementById("rez");
@@ -207,8 +207,8 @@ window.onload = function init() {
       document.getElementById("bulgeValue").innerHTML = bulge;
       gl.uniform1f(bulge, bulge);
    };
-   ele.value = 10.0;
-   document.getElementById("bulgeValue").innerHTML = 10.0;
+   ele.value = bulge;
+   document.getElementById("bulgeValue").innerHTML = bulge;
 
    // Diffuse colour picker - set initial value
    document.getElementById("diffuseColor").jscolor.fromRGB(
