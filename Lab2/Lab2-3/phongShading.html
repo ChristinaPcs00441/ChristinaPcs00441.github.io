@@ -26,6 +26,8 @@ const int n = 1; // number of lights
 uniform mat4 p;     // perspective matrix
 uniform mat4 mv;    // modelview matrix
 
+uniform float bulge;    // modelview matrix
+
 //globals
 vec3 N; // fixed surface normal
 
@@ -38,7 +40,7 @@ void main()
   //normal is also interpolated for pixel lighting
   normal = (mv*vec4(vNormal,0.0)).xyz;
 
-  gl_Position = (p*mv)*(vPosition + material.bulge*vec4(normal,1.0));
+  gl_Position = (p*mv)*(vPosition + bulge*vec4(normal,1.0));
     
 }
     </script>
@@ -70,7 +72,6 @@ struct _material
     vec4 specular;
     vec4 ambient;
     float shininess;
-    float bulge;
 };
 
 //constants
@@ -155,11 +156,10 @@ vec4 lightCalc(in _light light)
     <div>Light rotY: 0<input id="rotY" type="range" min="0" max="360" step="0.1" value="0" style="width: 650px;">360 <span id="directionval">fixme</span></div>
     <div>Shininess: 1<input id="shininess" type="range" min="1" max="255" step="1" value="50" style="width: 650px;">255 <span id="shininessval">fixme</span></div>
     <div>Sphere Rez: 5<input id="rez" type="range" min="5" max="100" step="1" value="10" style="width: 650px;">100 <span id="rezval">fixme</span></div>
-    <button id="specularColor" class="jscolor {valueElement:'chosen-value', onFineChange:'setSpecularColor(this)'}" style="width: 400px; height: 100px;">
-      
-    <div>Bulge Effect: 0.0<input id="bulge" type="range" min="0.0" max="10.0" step="0.1" value="0.5" style="width: 650px;">10.0 
-    <span id="bulgeValue">fixme</span></div>
-		
+    
+    <div>Bulge Effect: 0.0<input id="bulge" type="range" min="0.0" max="10.0" step="0.1" value="0.5" style="width: 650px;">10.0<span id="bulgeValue">fixme<span></div>
+
+		<button id="specularColor" class="jscolor {valueElement:'chosen-value', onFineChange:'setSpecularColor(this)'}" style="width: 400px; height: 100px;">
     Specular Color
 	</button>
     <button id="diffuseColor" class="jscolor {valueElement:'chosen-value', onFineChange:'setDiffuseColor(this)'}" style="width: 400px; height: 100px;">

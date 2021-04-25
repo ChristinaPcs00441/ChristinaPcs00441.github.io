@@ -156,7 +156,8 @@ window.onload = function init() {
    material.specular = gl.getUniformLocation(program, "material.specular");
    material.ambient = gl.getUniformLocation(program, "material.ambient");
    material.shininess = gl.getUniformLocation(program, "material.shininess");
-   material.bulge = gl.getUniformLocation(program, "material.bulge");
+   
+   bulge = gl.getUniformLocation(program, "material.bulge");
 
    /////
    //Add or modify colours here to set a default material for the objects in the scene
@@ -168,7 +169,7 @@ window.onload = function init() {
    gl.uniform4fv(material.specular, specularColor);
    gl.uniform4fv(material.ambient, diffuseColor);
    gl.uniform1f(material.shininess, 50.0);
-   gl.uniform1f(material.bulge, 10.0);
+   gl.uniform1f(bulge, 10.0);
 
    /////
    //Add code to get global ambient uniforms and set their initial state
@@ -226,7 +227,7 @@ window.onload = function init() {
    ele.oninput = ele.onchange = function (event) {
       var bulge = (event.srcElement || event.target).value;
       document.getElementById("bulgeValue").innerHTML = bulge;
-      gl.uniform1f(material.bulge, bulge);
+      gl.uniform1f(bulge, bulge);
    };
    ele.value = 10.0;
    document.getElementById("bulgeValue").innerHTML = 10.0;
